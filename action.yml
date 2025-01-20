@@ -251,7 +251,7 @@ runs:
                  aria2c -o gcc-arm.tar.gz https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/+archive/refs/tags/android-12.1.0_r27.tar.gz
                  tar -C $HOME/gcc-32 -zxf gcc-arm.tar.gz
              fi
-         elif [ ! -z ${{ inputs.other-gcc64-url }} ] || [ ! -z ${{ inputs.other-gcc32-url }} ]; then
+         if [ ! -z ${{ inputs.other-gcc64-url }} ] || [ ! -z ${{ inputs.other-gcc32-url }} ]; then
              echo "::group:: Downloading Third party GCC"
                  export OTHER_GCC64_URL=${{ inputs.other-gcc64-url }}
                  export OTHER_GCC32_URL=${{ inputs.other-gcc32-url }}
